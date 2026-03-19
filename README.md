@@ -15,27 +15,27 @@ The lab gets updated regularly, so do [sync your fork with the upstream](https:/
 
 > "The best way to understand an API is to build a client for it."
 
-You will use an AI coding agent (Qwen Code) to build a Telegram bot client for the LMS backend you deployed in previous labs. The bot talks to your backend, fetches real data, and uses an LLM to answer natural language questions.
+You will use an AI coding agent (Qwen Code) to build a Telegram bot client for your LMS backend. The bot connects to your backend, fetches real data, and uses an LLM to answer natural language questions.
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │                                                              │
 │  ┌──────────────┐     ┌──────────────────────────────────┐   │
-│  │  Telegram     │────▶│  Your Bot                        │   │
-│  │  User         │◀────│  (aiogram / python-telegram-bot) │   │
+│  │  Telegram    │────▶│  Your Bot                        │   │
+│  │  User        │◀────│  (aiogram / python-telegram-bot) │   │
 │  └──────────────┘     └──────┬───────────────────────────┘   │
 │                              │                               │
-│                              │ slash commands + plain text    │
-│                              ├──────────▶ /start, /help      │
-│                              ├──────────▶ /health, /labs     │
-│                              ├──────────▶ intent router ──▶ LLM
+│                              │ slash commands + plain text   │
+│                              ├───────▶ /start, /help         │
+│                              ├───────▶ /health, /labs        │
+│                              ├───────▶ intent router ──▶ LLM |
 │                              │                    │          │
 │                              │                    ▼          │
-│  ┌──────────────┐     ┌──────┴───────┐    tools/actions     │
-│  │  Docker       │     │  LMS Backend  │◀───── GET /items    │
-│  │  Compose      │     │  (FastAPI)    │◀───── GET /analytics│
-│  │               │     │  + PostgreSQL │◀───── POST /sync    │
-│  └──────────────┘     └──────────────┘                      │
+│  ┌──────────────┐     ┌──────┴───────┐    tools/actions      │
+│  │  Docker      │     │  LMS Backend │◀───── GET /items      │
+│  │  Compose     │     │  (FastAPI)   │◀───── GET /analytics  │
+│  │              │     │  + PostgreSQL│◀───── POST /sync      │
+│  └──────────────┘     └──────────────┘                       │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -43,17 +43,7 @@ You will use an AI coding agent (Qwen Code) to build a Telegram bot client for t
 
 This lab is about learning to collaborate with an AI coding agent as a development partner. You are not following step-by-step instructions — you are building a product.
 
-Use your coding agent to help you plan and implement:
-
-> Here are the requirements. Create a development plan.
-
-> Scaffold the project with a testable handler architecture.
-
-> Implement /health — it should call GET /items on my backend and report the status.
-
-> The bot should understand plain text like "which lab has the lowest pass rate?" — implement intent routing.
-
-The bot you build is practical (~200-400 lines). The learning comes from the iterative process of planning, building, testing, and debugging with agent assistance.
+The bot you build is practical (~200-400 lines). The learning comes from the iterative process of planning, building, testing, and debugging with agent assistance. Document your design decisions and architecture.
 
 ## Learning outcomes
 
