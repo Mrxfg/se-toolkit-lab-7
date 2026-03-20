@@ -1,4 +1,5 @@
 from handlers.core.basic import start, help_cmd, health, labs, scores
+from handlers.core.ai import route
 
 def handle(cmd: str):
     if cmd.startswith("/start"):
@@ -13,6 +14,14 @@ def handle(cmd: str):
         return scores(cmd)
     else:
         return "Unknown command. Use /help"
+
+def handle(cmd: str):
+    if cmd.startswith("/"):
+        # old commands
+        ...
+    else:
+        return route(cmd)
+
 if __name__ == "__main__":
     import sys
     if "--test" in sys.argv:
