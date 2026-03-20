@@ -1,5 +1,4 @@
-import sys
-from handlers.core.basic import start, help_cmd, health, labs
+from handlers.core.basic import start, help_cmd, health, labs, scores
 
 def handle(cmd: str):
     if cmd.startswith("/start"):
@@ -10,14 +9,14 @@ def handle(cmd: str):
         return health()
     elif cmd.startswith("/labs"):
         return labs()
+    elif cmd.startswith("/scores"):
+        return scores(cmd)
     else:
-        return "Unknown command"
-
+        return "Unknown command. Use /help"
 if __name__ == "__main__":
+    import sys
     if "--test" in sys.argv:
         idx = sys.argv.index("--test")
         cmd = sys.argv[idx + 1]
         print(handle(cmd))
         exit(0)
-
-    print("Run with --test")
