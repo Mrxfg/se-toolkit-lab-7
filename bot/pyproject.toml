@@ -1,0 +1,9 @@
+[project]
+name = "bot"
+version = "0.1.0"
+dependencies = [
+    "python-dotenv",
+    "requests"
+]
+
+[tool.uv]
