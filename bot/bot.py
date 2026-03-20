@@ -1,5 +1,5 @@
 import sys
-from handlers.basic import start, help_cmd, health, labs
+from handlers.core.basic import start, help_cmd, health, labs
 
 def handle(cmd: str):
     if cmd.startswith("/start"):
